@@ -84,19 +84,32 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="前言
+
+友盟统计分析平台是国内最大的移动应用统计分析平台。用于帮助移动应用开发商统计和分析流量来源、内容使用、用户属性和行为数据，以便开发商利用数据进行产品、运营、推广策略的决策。由于官网提供的代码样例是Objective-C的，下面我将演示如何使用Swift来调用友盟的SDK。
+什么是友盟
+友盟致力于为移动开发者提供专业的数据统计分析、开发和运营组件及推广服务。服务包含移动应用统计分析以及细分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/12/27/hello-world/index.html">
+<meta property="og:title" content="swift集成友盟统计">
+<meta property="og:url" content="http://yoursite.com/2016/12/28/postName/index.html">
 <meta property="og:site_name" content="陳文超同学">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-12-27T09:08:37.000Z">
+<meta property="og:description" content="前言
+
+友盟统计分析平台是国内最大的移动应用统计分析平台。用于帮助移动应用开发商统计和分析流量来源、内容使用、用户属性和行为数据，以便开发商利用数据进行产品、运营、推广策略的决策。由于官网提供的代码样例是Objective-C的，下面我将演示如何使用Swift来调用友盟的SDK。
+什么是友盟
+友盟致力于为移动开发者提供专业的数据统计分析、开发和运营组件及推广服务。服务包含移动应用统计分析以及细分">
+<meta property="og:image" content="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0@2x.png">
+<meta property="og:image" content="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-1@2x.png">
+<meta property="og:image" content="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0.png">
+<meta property="og:updated_time" content="2016-12-28T06:20:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="swift集成友盟统计">
+<meta name="twitter:description" content="前言
+
+友盟统计分析平台是国内最大的移动应用统计分析平台。用于帮助移动应用开发商统计和分析流量来源、内容使用、用户属性和行为数据，以便开发商利用数据进行产品、运营、推广策略的决策。由于官网提供的代码样例是Objective-C的，下面我将演示如何使用Swift来调用友盟的SDK。
+什么是友盟
+友盟致力于为移动开发者提供专业的数据统计分析、开发和运营组件及推广服务。服务包含移动应用统计分析以及细分">
+<meta name="twitter:image" content="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0@2x.png">
 
 
 
@@ -124,13 +137,13 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/27/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/28/postName/"/>
 
 
 
 
 
-  <title> Hello World | 陳文超同学 </title>
+  <title> swift集成友盟统计 | 陳文超同学 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -243,7 +256,7 @@ Quick">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/27/hello-world/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/28/postName/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="陳文超同学">
@@ -267,7 +280,7 @@ Quick">
             
             
               
-                Hello World
+                swift集成友盟统计
               
             
           </h1>
@@ -282,8 +295,8 @@ Quick">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-27T17:08:37+08:00">
-                2016-12-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-28T14:03:49+08:00">
+                2016-12-28
               </time>
             
 
@@ -318,15 +331,40 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <blockquote>
+<p>前言</p>
+</blockquote>
+<p>友盟统计分析平台是国内最大的移动应用统计分析平台。用于帮助移动应用开发商统计和分析流量来源、内容使用、用户属性和行为数据，以便开发商利用数据进行产品、运营、推广策略的决策。<strong>由于官网提供的代码样例是Objective-C的，下面我将演示如何使用Swift来调用友盟的SDK。</strong></p>
+<h3 id="什么是友盟"><a href="#什么是友盟" class="headerlink" title="什么是友盟"></a>什么是友盟</h3><ul>
+<li>友盟致力于为移动开发者提供专业的数据统计分析、开发和运营组件及推广服务。服务包含移动应用统计分析以及细分行业的移动游戏统计分析、社会化分享组件、消息推送、自动更新、用户反馈、错误分析等产品。</li>
+<li>友盟提供iOS、Android和Windows Phone等多平台服务。</li>
+</ul>
+<h3 id="集成步骤"><a href="#集成步骤" class="headerlink" title="集成步骤"></a>集成步骤</h3><p>（1）获得Appkey<br>在集成友盟SDK之前，首先需要到 <a href="http://mobile.umeng.com/apps" target="_blank" rel="external">友盟官网</a> 注册并且添加新应用，获得Appkey</p>
+<ul>
+<li>特别提醒：我们建议开发者在注册账号时使用企业邮箱，避免使用个人邮箱注册，防止由于个人离职带来的问题，建议使用的账号形式 ：umeng@企业域名、apps@企业域名、dev@企业域名。<br><img src="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0@2x.png" alt=""></li>
+</ul>
+<p>(2)下载统计sdk</p>
+<ul>
+<li><a href="http://dev.umeng.com/analytics/ios-doc/sdk-download" target="_blank" rel="external">下载sdk</a>并解压缩。</li>
+</ul>
+<p>(3)把sdk添加到项目中去</p>
+<ul>
+<li>将sdk中的  <strong>UMMobClick.framework</strong> 文件拖入XCode工程目录<strong>Frameworks</strong>结构中。</li>
+</ul>
+<p><img src="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-1@2x.png" alt=""></p>
+<p><strong>同时还要记得添加桥接文件，在其中增加对友盟分析的引用。</strong></p>
+<blockquote>
+<p><code>#import &lt;UMMobClick/MobClick.h&gt;</code></p>
+</blockquote>
+<p>如果不知道怎么添加，请自行 Google</p>
+<p>(4)在 AppDelegate.swift 中增加配置，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">import UIKit</div><div class="line"></div><div class="line">@UIApplicationMain</div><div class="line">class AppDelegate: UIResponder, UIApplicationDelegate &#123;</div><div class="line"></div><div class="line">var window: UIWindow?</div><div class="line"></div><div class="line">func application(application: UIApplication,</div><div class="line">didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -&gt; Bool &#123;</div><div class="line"></div><div class="line">//友盟统计</div><div class="line">let cofingUmeng = UMAnalyticsConfig();</div><div class="line">cofingUmeng.appKey = &quot;585895f7f5ade4037f002237&quot;</div><div class="line">cofingUmeng.channelId = &quot;App Store&quot;</div><div class="line">MobClick.startWithConfigure(cofingUmeng);</div><div class="line"></div><div class="line">return true</div><div class="line">&#125;</div><div class="line">func applicationWillResignActive(application: UIApplication) &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func applicationDidEnterBackground(application: UIApplication) &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func applicationWillEnterForeground(application: UIApplication) &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func applicationDidBecomeActive(application: UIApplication) &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func applicationWillTerminate(application: UIApplication) &#123;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(5)测试效果</p>
+<ul>
+<li>上面配置完以后直接启动测试下（真机模拟器均可），进入友盟后台，可以看到新增用户信息了。<br><img src="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0.png" alt=""></li>
+</ul>
+<p>如果在后台成功的看见有数据变化证明已经集成 ok 啦🙄，如果想扩展统计更多功能请参考<a href="http://dev.umeng.com/analytics/ios-doc/integration" target="_blank" rel="external">友盟官网文档</a></p>
+<p>有什么问题欢迎留言或者私信，作者看到后都会一一回复</p>
+<p>么么哒~</p>
 
       
     </div>
@@ -353,15 +391,15 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/12/27/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/28/postName/" rel="prev" title="swift集成友盟统计">
-                swift集成友盟统计 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -470,7 +508,7 @@ Quick">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是友盟"><span class="nav-number">1.</span> <span class="nav-text">什么是友盟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成步骤"><span class="nav-number">2.</span> <span class="nav-text">集成步骤</span></a></li></ol></div>
             
 
           </div>

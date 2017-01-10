@@ -1681,7 +1681,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff1fda;
+  background: #5bfa29;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2844,4 +2844,7 @@ a.search-result {
   .post-body {
     text-align: justify;
   }
+}
+ul {
+  list-style-type: disc;
 }

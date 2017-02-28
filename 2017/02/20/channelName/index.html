@@ -1,0 +1,817 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="陈文超同学, wenchaotalk" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/avatar.gif?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="什么是多渠道打包我们知道，由于天朝网络的限制，Android的亲爹市场 GooglePlay 不能进入大陆，导致国内的Android 市场百花齐放，如：应用宝、小米、豌豆荚、华为等等等。
+当新版本发布，我们需要通过渠道号来区分不同的市场，为不同市场生成不同的包，再把对应的包上传到各个市场。这种为App打出不同渠道包的技术称为多渠道打包。
+怎么去做多渠道打包
+多渠道打包实现有多种，但是有两点不会变：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android多渠道打包对比">
+<meta property="og:url" content="http://yoursite.com/2017/02/20/channelName/index.html">
+<meta property="og:site_name" content="陳文超同学">
+<meta property="og:description" content="什么是多渠道打包我们知道，由于天朝网络的限制，Android的亲爹市场 GooglePlay 不能进入大陆，导致国内的Android 市场百花齐放，如：应用宝、小米、豌豆荚、华为等等等。
+当新版本发布，我们需要通过渠道号来区分不同的市场，为不同市场生成不同的包，再把对应的包上传到各个市场。这种为App打出不同渠道包的技术称为多渠道打包。
+怎么去做多渠道打包
+多渠道打包实现有多种，但是有两点不会变：">
+<meta property="og:updated_time" content="2017-02-28T09:09:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android多渠道打包对比">
+<meta name="twitter:description" content="什么是多渠道打包我们知道，由于天朝网络的限制，Android的亲爹市场 GooglePlay 不能进入大陆，导致国内的Android 市场百花齐放，如：应用宝、小米、豌豆荚、华为等等等。
+当新版本发布，我们需要通过渠道号来区分不同的市场，为不同市场生成不同的包，再把对应的包上传到各个市场。这种为App打出不同渠道包的技术称为多渠道打包。
+怎么去做多渠道打包
+多渠道打包实现有多种，但是有两点不会变：">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/20/channelName/"/>
+
+
+
+
+
+  <title> Android多渠道打包对比 | 陳文超同学 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c884c21dbec0f37a21e76bd3bdfdd6a7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">陳文超同学</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">To Be A Lean Developer!</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/20/channelName/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="陳文超同学">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="陳文超同学">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="陳文超同学" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android多渠道打包对比
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-20T14:55:58+08:00">
+                2017-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/20/channelName/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/20/channelName/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="什么是多渠道打包"><a href="#什么是多渠道打包" class="headerlink" title="什么是多渠道打包"></a>什么是多渠道打包</h1><p>我们知道，由于天朝网络的限制，Android的亲爹市场 GooglePlay 不能进入大陆，导致国内的Android 市场百花齐放，如：应用宝、小米、豌豆荚、华为等等等。</p>
+<p>当新版本发布，我们需要通过<strong>渠道号</strong>来区分不同的市场，为不同市场生成不同的包，再把对应的包上传到各个市场。这种为App打出不同渠道包的技术称为<strong>多渠道打包。</strong></p>
+<h1 id="怎么去做多渠道打包"><a href="#怎么去做多渠道打包" class="headerlink" title="怎么去做多渠道打包"></a>怎么去做多渠道打包</h1><blockquote>
+<p>多渠道打包实现有多种，但是有两点不会变：</p>
+</blockquote>
+<ul>
+<li>渠道区分</li>
+<li>打包</li>
+</ul>
+<p>接下去介绍一下现今的多渠道打包技术，以及它们之间的对比。</p>
+<h3 id="Umeng-Gradle"><a href="#Umeng-Gradle" class="headerlink" title="Umeng+Gradle"></a>Umeng+Gradle</h3><p>相信大多数 App 集成了 Umeng 的服务，所以就拿它举例了，事实上，不用 Umeng 也没有丝毫关系。</p>
+<h3 id="渠道的区分"><a href="#渠道的区分" class="headerlink" title="渠道的区分"></a>渠道的区分</h3><p>在<code>AndroidManifest.xml</code>中配置一个<code>meta-data</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">"UMENG_CHANNEL"</span></div><div class="line">    <span class="attr">android:value</span>=<span class="string">"$&#123;CHANNEL_NAME&#125;"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>然后在<code>app/build.gradle</code>里配置<code>productFlavors</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">    productFlavors &#123;</div><div class="line">        autoupdate &#123;&#125; <span class="comment">// 自动更新渠道</span></div><div class="line"><span class="comment">//        yingyongbao &#123;&#125; // 应用宝</span></div><div class="line">        productFlavors.all &#123; flavor -&gt;</div><div class="line">            flavor.manifestPlaceholders = [CHANNEL_ID: name]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre>autoupdate {} 是渠道列表，每一行代表一个渠道，这样方便管理。</pre>
+### 打包方法
+使用 `./gradlew assembleRelease`命令，就可以打出多渠道的包了。
+### 原理
+该种方式的打包原理是利用了 Gradle 的`flavors`功能来实现的，渠道的获取是通过如下代码方式获取。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ApplicationInfo appInfo = cxt.getPackageManager().getApplicationInfo(cxt.getPackageName(), PackageManager.GET_META_DATA);</div><div class="line">String channel = String.valueOf(appInfo.metaData.get(<span class="string">"UMENG_CHANNEL"</span>));</div></pre></td></tr></table></figure>
+
+# 优缺点
+### 优点：
+
+- 简单，易懂，没什么门槛，也不需要依赖其他工具与插件。
+- Gradle强大的flavor功能，可以实现不同渠道拥有不同的代码实现，可以给渠道做定制包。
+- 扩展性强大，没有兼容性问题。
+
+### 缺点：
+
+- 打包速度极慢，因为每个渠道包都是从“0到1”，渠道一多，打包时间以小时为单位。
+
+<pre>ps:若 App 几百个渠道，用这种方式打包需要2多个小时，怎么受得了？。
+所以，该方式适合渠道不多的时候使用，或者不同渠道需要使用不同的代码。</pre>
+
+<h1 id="美团的打包方案"><a href="#美团的打包方案" class="headerlink" title="美团的打包方案"></a><a href="http://tech.meituan.com/mt-apk-packaging.html" target="_blank" rel="external">美团的打包方案</a></h1><p>上面说到，每个渠道包都是从“0到1”，然而实际上，渠道包之间的唯一差别仅仅在于一个<code>渠道号</code>（这里暂时只考虑不同渠道的代码相同），如果能拿已经打好的包，拿来修改一下渠道号，变成另一个渠道包，那这速度就能大幅度提高了。</p>
+<p><a href="http://tech.meituan.com/mt-apk-packaging.html" target="_blank" rel="external">美团的打包方案</a>，利用<code>META-INF</code>（解压APK可以看到）不参与 APK 签名的原理，在<code>META-INF</code>新增空的文件来代表渠道，实现了这个功能，极大的提高了打包的速度。</p>
+<h3 id="渠道的区分-1"><a href="#渠道的区分-1" class="headerlink" title="渠道的区分"></a>渠道的区分</h3><p><code>META-INF</code>目录下新增空文件，再在代码中读取文件名获取()。</p>
+<p>PS：可以去市场下载一个美团 APP 来解压一下看看。</p>
+<h3 id="打包方法"><a href="#打包方法" class="headerlink" title="打包方法"></a>打包方法</h3><p>由于美团并没有给出具体的实现代码，所以我当时尝试的是开源实现：<a href="https://github.com/GavinCT/AndroidMultiChannelBuildTool" target="_blank" rel="external">安卓多渠道打包工具</a></p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>上面已经提到了，<code>META-INF</code>不参与 APK 签名。</p>
+<p>在<code>META-INF</code>目录下新增一个空的文件来代表渠道名。</p>
+<p>这样就可以只打一次签名包，后续只需拷贝，新增渠道文件即可。</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>速度极快,每打一个包就只需要复制一个APK，并新增一个空文件即可。（900个包一分钟，我天）</li>
+<li>可以利用已存在的包打新的渠道包。（可多个）</li>
+</ul>
+<p>第2点其实也是非常棒的优点，当需要一个新的渠道包时，不再需要停下工作，去保存代码，切分支，build，打包，只要一个已存在的包，一个命令就好，非常方便。</p>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><ul>
+<li>不安全，由于不需要签名，所以任何人都可以拿到已有的包，修改成任意其他渠道的包，可能会被恶意利用污染渠道数据。</li>
+<li>扩展性较差。（暂时没有Gradle的实现方案，相对来说选择余地较小，扩展性也差一些）</li>
+<li>不支持 flavors</li>
+<li>潜在风险，现在META-INF不参与APK签名，万一以后参与了，那么这套方案就失效了，当然这个概率估计很小。</li>
+<li>似乎不支持 android 7.0？<a href="https://github.com/GavinCT/AndroidMultiChannelBuildTool/issues/16" target="_blank" rel="external">issue</a>(没亲测，未知)</li>
+<li>需要修改代码，修改渠道的获取方式（Umeng配置修改）</li>
+</ul>
+<p>美团打包方式是一次大创新，最吸引人的就是速度快，真心快，就是打包的时间喝杯水再也不够了。</p>
+<h1 id="packer-ng-plugin"><a href="#packer-ng-plugin" class="headerlink" title="packer-ng-plugin"></a><a href="https://github.com/mcxiaoke/packer-ng-plugin" target="_blank" rel="external">packer-ng-plugin</a></h1><p>号称『下一代Android打包工具』，拥有与美团的方案相媲美的打包速度。</p>
+<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>我们知道，其实 APK 是一个 Zip 文件，所以 APK 拥有 Zip 格式的特点。</p>
+<p>该方法利用 Zip 格式的特点，修改<code>Comment Length</code>和<code>File Comment</code>两个字段，不会对ZIP文件造成破坏，将渠道信息放入其中，达到修改渠道的目的。由于修改以上内容也不需要重新签名打包，所以拥有与美团的方案相媲美的打包速度。</p>
+<p>更多详情，见原项目<a href="https://github.com/mcxiaoke/packer-ng-plugin" target="_blank" rel="external">Github</a>。</p>
+<h3 id="渠道区分"><a href="#渠道区分" class="headerlink" title="渠道区分"></a>渠道区分</h3><p>渠道信息存放在APK文件的注释字段<code>File Comment</code>，在代码中使用 packer 提供的方法获取。</p>
+<h3 id="打包方法-1"><a href="#打包方法-1" class="headerlink" title="打包方法"></a>打包方法</h3><p>提供了三种实现方式，<code>Gradle</code>、<code>Java</code>、<code>Python</code>，都可以使用。</p>
+<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>打包速度极快。（与美团方案速度差不多）</li>
+<li>选择性更多，作者很良心，提供了Gradle，Java，Python三种实现。</li>
+<li>扩展性强大，由于有 Gradle 的实现方案，所以扩展性有了保障。</li>
+</ul>
+<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>不支持 flavors。</li>
+<li>需要修改代码，修改渠道的获取方式。（Umeng配置修改）</li>
+<li>有潜在兼容性问题，具体可见 兼容性问题(已经解决)</li>
+<li>潜在风险，Zip 格式万一修改，那么该方式失效，这概论应该也非常低。</li>
+<li>已知360加固后，重新签名Apk后会抹去渠道信息。</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><code>packer</code>利用 Zip 格式，又一个多渠道打包的创新，速度极快，又安全，非常棒！</p>
+<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><table>
+<thead>
+<tr>
+<th>对比项</th>
+<th style="text-align:center">Gradle</th>
+<th style="text-align:center">美团</th>
+<th style="text-align:center">packer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否支持 flavors</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td>打包速度</td>
+<td style="text-align:center">慢</td>
+<td style="text-align:center">极快</td>
+<td style="text-align:center">极快</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">有风险</td>
+<td style="text-align:center">高</td>
+</tr>
+<tr>
+<td>扩展性</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">较低</td>
+<td style="text-align:center">较高</td>
+</tr>
+<tr>
+<td>兼容性问题</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td>风险</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">低</td>
+<td style="text-align:center">低</td>
+</tr>
+<tr>
+<td>加固后影响</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">未测试</td>
+<td style="text-align:center">丢失渠道信息</td>
+</tr>
+</tbody>
+</table>
+<h1 id="如何选择？"><a href="#如何选择？" class="headerlink" title="如何选择？"></a>如何选择？</h1><p>目前只有<code>Gradle</code>支持<code>flavors</code>功能，所以如果这个需求强烈，那么就只能选择<code>Gradle</code>。</p>
+<p>如果没有这个需求，那么相对于美团打包的方式，第三种方式<code>packer</code>更加安全一些，速度方面也令人满意。</p>
+<p>当然如果使用美团方式，可以在服务端过滤非法的渠道，也是可以的！~（看了美团的 APK，渠道是明文的，所以估计也是在服务端处理的，如果用的是 Umeng 统计，那么就不行喽）。</p>
+<p>最后我们的选择是，以<code>packer</code>为主，<code>Gradle</code>为辅。</p>
+<h1 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h1><p><a href="http://tech.meituan.com/mt-apk-packaging.html" target="_blank" rel="external">美团Android自动化之旅—生成渠道包</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/11/xib/" rel="next" title="xib、StoryBoard、手写代码 UI间的的优劣比较">
+                <i class="fa fa-chevron-left"></i> xib、StoryBoard、手写代码 UI间的的优劣比较
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/20/channelName/"
+           data-title="Android多渠道打包对比" data-url="http://yoursite.com/2017/02/20/channelName/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="陳文超同学" />
+          <p class="site-author-name" itemprop="name">陳文超同学</p>
+          <p class="site-description motion-element" itemprop="description">不能怂，就是干！</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Cunese2020" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2695477314/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是多渠道打包"><span class="nav-number">1.</span> <span class="nav-text">什么是多渠道打包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么去做多渠道打包"><span class="nav-number">2.</span> <span class="nav-text">怎么去做多渠道打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Umeng-Gradle"><span class="nav-number">2.0.1.</span> <span class="nav-text">Umeng+Gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道的区分"><span class="nav-number">2.0.2.</span> <span class="nav-text">渠道的区分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美团的打包方案"><span class="nav-number">3.</span> <span class="nav-text">美团的打包方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道的区分-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">渠道的区分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包方法"><span class="nav-number">3.0.2.</span> <span class="nav-text">打包方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">3.0.3.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">3.0.4.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">3.0.4.1.</span> <span class="nav-text">优点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点："><span class="nav-number">3.0.5.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#packer-ng-plugin"><span class="nav-number">4.</span> <span class="nav-text">packer-ng-plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理-1"><span class="nav-number">4.0.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道区分"><span class="nav-number">4.0.2.</span> <span class="nav-text">渠道区分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包方法-1"><span class="nav-number">4.0.3.</span> <span class="nav-text">打包方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-1"><span class="nav-number">4.0.4.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点：-1"><span class="nav-number">4.0.4.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点：-1"><span class="nav-number">4.0.4.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">4.0.5.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比"><span class="nav-number">5.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何选择？"><span class="nav-number">6.</span> <span class="nav-text">如何选择？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#资料"><span class="nav-number">7.</span> <span class="nav-text">资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陳文超同学</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://wenchaotalk.cc">wenchaotalk</a>
+</div>
+
+<div class="theme-info">
+转载请保留原文链接及作者
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"cwc1994"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

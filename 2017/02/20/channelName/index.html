@@ -94,7 +94,7 @@
 当新版本发布，我们需要通过渠道号来区分不同的市场，为不同市场生成不同的包，再把对应的包上传到各个市场。这种为App打出不同渠道包的技术称为多渠道打包。
 怎么去做多渠道打包
 多渠道打包实现有多种，但是有两点不会变：">
-<meta property="og:updated_time" content="2017-02-28T09:09:47.000Z">
+<meta property="og:updated_time" content="2017-02-28T09:14:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android多渠道打包对比">
 <meta name="twitter:description" content="什么是多渠道打包我们知道，由于天朝网络的限制，Android的亲爹市场 GooglePlay 不能进入大陆，导致国内的Android 市场百花齐放，如：应用宝、小米、豌豆荚、华为等等等。
@@ -358,24 +358,18 @@
 <p>然后在<code>app/build.gradle</code>里配置<code>productFlavors</code>：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">    productFlavors &#123;</div><div class="line">        autoupdate &#123;&#125; <span class="comment">// 自动更新渠道</span></div><div class="line"><span class="comment">//        yingyongbao &#123;&#125; // 应用宝</span></div><div class="line">        productFlavors.all &#123; flavor -&gt;</div><div class="line">            flavor.manifestPlaceholders = [CHANNEL_ID: name]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <pre>autoupdate {} 是渠道列表，每一行代表一个渠道，这样方便管理。</pre>
-### 打包方法
-使用 `./gradlew assembleRelease`命令，就可以打出多渠道的包了。
-### 原理
-该种方式的打包原理是利用了 Gradle 的`flavors`功能来实现的，渠道的获取是通过如下代码方式获取。
 
+<h3 id="打包方法"><a href="#打包方法" class="headerlink" title="打包方法"></a>打包方法</h3><p>使用 <code>./gradlew assembleRelease</code>命令，就可以打出多渠道的包了。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>该种方式的打包原理是利用了 Gradle 的<code>flavors</code>功能来实现的，渠道的获取是通过如下代码方式获取。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ApplicationInfo appInfo = cxt.getPackageManager().getApplicationInfo(cxt.getPackageName(), PackageManager.GET_META_DATA);</div><div class="line">String channel = String.valueOf(appInfo.metaData.get(<span class="string">"UMENG_CHANNEL"</span>));</div></pre></td></tr></table></figure>
-
-# 优缺点
-### 优点：
-
-- 简单，易懂，没什么门槛，也不需要依赖其他工具与插件。
-- Gradle强大的flavor功能，可以实现不同渠道拥有不同的代码实现，可以给渠道做定制包。
-- 扩展性强大，没有兼容性问题。
-
-### 缺点：
-
-- 打包速度极慢，因为每个渠道包都是从“0到1”，渠道一多，打包时间以小时为单位。
-
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li>简单，易懂，没什么门槛，也不需要依赖其他工具与插件。</li>
+<li>Gradle强大的flavor功能，可以实现不同渠道拥有不同的代码实现，可以给渠道做定制包。</li>
+<li>扩展性强大，没有兼容性问题。</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>打包速度极慢，因为每个渠道包都是从“0到1”，渠道一多，打包时间以小时为单位。</li>
+</ul>
 <pre>ps:若 App 几百个渠道，用这种方式打包需要2多个小时，怎么受得了？。
 所以，该方式适合渠道不多的时候使用，或者不同渠道需要使用不同的代码。</pre>
 
@@ -383,16 +377,16 @@
 <p><a href="http://tech.meituan.com/mt-apk-packaging.html" target="_blank" rel="external">美团的打包方案</a>，利用<code>META-INF</code>（解压APK可以看到）不参与 APK 签名的原理，在<code>META-INF</code>新增空的文件来代表渠道，实现了这个功能，极大的提高了打包的速度。</p>
 <h3 id="渠道的区分-1"><a href="#渠道的区分-1" class="headerlink" title="渠道的区分"></a>渠道的区分</h3><p><code>META-INF</code>目录下新增空文件，再在代码中读取文件名获取()。</p>
 <p>PS：可以去市场下载一个美团 APP 来解压一下看看。</p>
-<h3 id="打包方法"><a href="#打包方法" class="headerlink" title="打包方法"></a>打包方法</h3><p>由于美团并没有给出具体的实现代码，所以我当时尝试的是开源实现：<a href="https://github.com/GavinCT/AndroidMultiChannelBuildTool" target="_blank" rel="external">安卓多渠道打包工具</a></p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>上面已经提到了，<code>META-INF</code>不参与 APK 签名。</p>
+<h3 id="打包方法-1"><a href="#打包方法-1" class="headerlink" title="打包方法"></a>打包方法</h3><p>由于美团并没有给出具体的实现代码，所以我当时尝试的是开源实现：<a href="https://github.com/GavinCT/AndroidMultiChannelBuildTool" target="_blank" rel="external">安卓多渠道打包工具</a></p>
+<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>上面已经提到了，<code>META-INF</code>不参与 APK 签名。</p>
 <p>在<code>META-INF</code>目录下新增一个空的文件来代表渠道名。</p>
 <p>这样就可以只打一次签名包，后续只需拷贝，新增渠道文件即可。</p>
-<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><ul>
 <li>速度极快,每打一个包就只需要复制一个APK，并新增一个空文件即可。（900个包一分钟，我天）</li>
 <li>可以利用已存在的包打新的渠道包。（可多个）</li>
 </ul>
 <p>第2点其实也是非常棒的优点，当需要一个新的渠道包时，不再需要停下工作，去保存代码，切分支，build，打包，只要一个已存在的包，一个命令就好，非常方便。</p>
-<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><ul>
+<h3 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h3><ul>
 <li>不安全，由于不需要签名，所以任何人都可以拿到已有的包，修改成任意其他渠道的包，可能会被恶意利用污染渠道数据。</li>
 <li>扩展性较差。（暂时没有Gradle的实现方案，相对来说选择余地较小，扩展性也差一些）</li>
 <li>不支持 flavors</li>
@@ -402,17 +396,17 @@
 </ul>
 <p>美团打包方式是一次大创新，最吸引人的就是速度快，真心快，就是打包的时间喝杯水再也不够了。</p>
 <h1 id="packer-ng-plugin"><a href="#packer-ng-plugin" class="headerlink" title="packer-ng-plugin"></a><a href="https://github.com/mcxiaoke/packer-ng-plugin" target="_blank" rel="external">packer-ng-plugin</a></h1><p>号称『下一代Android打包工具』，拥有与美团的方案相媲美的打包速度。</p>
-<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>我们知道，其实 APK 是一个 Zip 文件，所以 APK 拥有 Zip 格式的特点。</p>
+<h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><p>我们知道，其实 APK 是一个 Zip 文件，所以 APK 拥有 Zip 格式的特点。</p>
 <p>该方法利用 Zip 格式的特点，修改<code>Comment Length</code>和<code>File Comment</code>两个字段，不会对ZIP文件造成破坏，将渠道信息放入其中，达到修改渠道的目的。由于修改以上内容也不需要重新签名打包，所以拥有与美团的方案相媲美的打包速度。</p>
 <p>更多详情，见原项目<a href="https://github.com/mcxiaoke/packer-ng-plugin" target="_blank" rel="external">Github</a>。</p>
 <h3 id="渠道区分"><a href="#渠道区分" class="headerlink" title="渠道区分"></a>渠道区分</h3><p>渠道信息存放在APK文件的注释字段<code>File Comment</code>，在代码中使用 packer 提供的方法获取。</p>
-<h3 id="打包方法-1"><a href="#打包方法-1" class="headerlink" title="打包方法"></a>打包方法</h3><p>提供了三种实现方式，<code>Gradle</code>、<code>Java</code>、<code>Python</code>，都可以使用。</p>
-<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><ul>
+<h3 id="打包方法-2"><a href="#打包方法-2" class="headerlink" title="打包方法"></a>打包方法</h3><p>提供了三种实现方式，<code>Gradle</code>、<code>Java</code>、<code>Python</code>，都可以使用。</p>
+<h3 id="优缺点-2"><a href="#优缺点-2" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a>优点：</h4><ul>
 <li>打包速度极快。（与美团方案速度差不多）</li>
 <li>选择性更多，作者很良心，提供了Gradle，Java，Python三种实现。</li>
 <li>扩展性强大，由于有 Gradle 的实现方案，所以扩展性有了保障。</li>
 </ul>
-<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<h4 id="缺点：-2"><a href="#缺点：-2" class="headerlink" title="缺点："></a>缺点：</h4><ul>
 <li>不支持 flavors。</li>
 <li>需要修改代码，修改渠道的获取方式。（Umeng配置修改）</li>
 <li>有潜在兼容性问题，具体可见 兼容性问题(已经解决)</li>
@@ -646,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是多渠道打包"><span class="nav-number">1.</span> <span class="nav-text">什么是多渠道打包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么去做多渠道打包"><span class="nav-number">2.</span> <span class="nav-text">怎么去做多渠道打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Umeng-Gradle"><span class="nav-number">2.0.1.</span> <span class="nav-text">Umeng+Gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道的区分"><span class="nav-number">2.0.2.</span> <span class="nav-text">渠道的区分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美团的打包方案"><span class="nav-number">3.</span> <span class="nav-text">美团的打包方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道的区分-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">渠道的区分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包方法"><span class="nav-number">3.0.2.</span> <span class="nav-text">打包方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">3.0.3.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">3.0.4.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">3.0.4.1.</span> <span class="nav-text">优点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点："><span class="nav-number">3.0.5.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#packer-ng-plugin"><span class="nav-number">4.</span> <span class="nav-text">packer-ng-plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理-1"><span class="nav-number">4.0.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道区分"><span class="nav-number">4.0.2.</span> <span class="nav-text">渠道区分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包方法-1"><span class="nav-number">4.0.3.</span> <span class="nav-text">打包方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-1"><span class="nav-number">4.0.4.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点：-1"><span class="nav-number">4.0.4.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点：-1"><span class="nav-number">4.0.4.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">4.0.5.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比"><span class="nav-number">5.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何选择？"><span class="nav-number">6.</span> <span class="nav-text">如何选择？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#资料"><span class="nav-number">7.</span> <span class="nav-text">资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是多渠道打包"><span class="nav-number">1.</span> <span class="nav-text">什么是多渠道打包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么去做多渠道打包"><span class="nav-number">2.</span> <span class="nav-text">怎么去做多渠道打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Umeng-Gradle"><span class="nav-number">2.0.1.</span> <span class="nav-text">Umeng+Gradle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道的区分"><span class="nav-number">2.0.2.</span> <span class="nav-text">渠道的区分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包方法"><span class="nav-number">2.0.3.</span> <span class="nav-text">打包方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">2.0.4.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">2.0.5.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">2.0.5.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">2.0.5.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美团的打包方案"><span class="nav-number">3.</span> <span class="nav-text">美团的打包方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道的区分-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">渠道的区分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包方法-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">打包方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理-1"><span class="nav-number">3.0.3.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-1"><span class="nav-number">3.0.4.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点：-1"><span class="nav-number">3.0.4.1.</span> <span class="nav-text">优点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点：-1"><span class="nav-number">3.0.5.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#packer-ng-plugin"><span class="nav-number">4.</span> <span class="nav-text">packer-ng-plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理-2"><span class="nav-number">4.0.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道区分"><span class="nav-number">4.0.2.</span> <span class="nav-text">渠道区分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包方法-2"><span class="nav-number">4.0.3.</span> <span class="nav-text">打包方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-2"><span class="nav-number">4.0.4.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点：-2"><span class="nav-number">4.0.4.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点：-2"><span class="nav-number">4.0.4.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">4.0.5.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比"><span class="nav-number">5.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何选择？"><span class="nav-number">6.</span> <span class="nav-text">如何选择？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#资料"><span class="nav-number">7.</span> <span class="nav-text">资料</span></a></li></ol></div>
             
 
           </div>

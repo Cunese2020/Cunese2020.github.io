@@ -82,32 +82,28 @@
 
 
 
-<meta name="description" content="前言
+<meta name="description" content="版权声明：本文为博主原创文章，未经博主允许不得转载。我的博客
 
-友盟统计分析平台是国内最大的移动应用统计分析平台。用于帮助移动应用开发商统计和分析流量来源、内容使用、用户属性和行为数据，以便开发商利用数据进行产品、运营、推广策略的决策。由于官网提供的代码样例是Objective-C的，下面我将演示如何使用Swift来调用友盟的SDK。
-什么是友盟
-友盟致力于为移动开发者提供专业的数据统计分析、开发和运营组件及推广服务。服务包含移动应用统计分析以及细分">
+背景知识对于Android开发者来说，我想大家应该都知道，在 Android 7.0 Nougat 中引入了全新的 APK Signature Scheme v2，所以我大致总结一下，我们开发者需要了解的新的打包的方式和签名步骤。
+说明Android 7.0 引入一项新的应用签名方案 APK Signature Scheme v2，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift集成友盟统计">
-<meta property="og:url" content="http://yoursite.com/2016/12/28/postName/index.html">
+<meta property="og:title" content="APK signature scheme v1、v2">
+<meta property="og:url" content="http://yoursite.com/2017/03/01/Signature/index.html">
 <meta property="og:site_name" content="陳文超同学">
-<meta property="og:description" content="前言
+<meta property="og:description" content="版权声明：本文为博主原创文章，未经博主允许不得转载。我的博客
 
-友盟统计分析平台是国内最大的移动应用统计分析平台。用于帮助移动应用开发商统计和分析流量来源、内容使用、用户属性和行为数据，以便开发商利用数据进行产品、运营、推广策略的决策。由于官网提供的代码样例是Objective-C的，下面我将演示如何使用Swift来调用友盟的SDK。
-什么是友盟
-友盟致力于为移动开发者提供专业的数据统计分析、开发和运营组件及推广服务。服务包含移动应用统计分析以及细分">
-<meta property="og:image" content="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0@2x.png">
-<meta property="og:image" content="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-1@2x.png">
-<meta property="og:image" content="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0.png">
-<meta property="og:updated_time" content="2016-12-28T07:01:12.000Z">
+背景知识对于Android开发者来说，我想大家应该都知道，在 Android 7.0 Nougat 中引入了全新的 APK Signature Scheme v2，所以我大致总结一下，我们开发者需要了解的新的打包的方式和签名步骤。
+说明Android 7.0 引入一项新的应用签名方案 APK Signature Scheme v2，">
+<meta property="og:image" content="https://o6li24d5a.qnssl.com/snapshot_1489129198356.png">
+<meta property="og:image" content="https://o6li24d5a.qnssl.com/snapshot_1489129858310.png">
+<meta property="og:updated_time" content="2017-03-10T07:27:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift集成友盟统计">
-<meta name="twitter:description" content="前言
+<meta name="twitter:title" content="APK signature scheme v1、v2">
+<meta name="twitter:description" content="版权声明：本文为博主原创文章，未经博主允许不得转载。我的博客
 
-友盟统计分析平台是国内最大的移动应用统计分析平台。用于帮助移动应用开发商统计和分析流量来源、内容使用、用户属性和行为数据，以便开发商利用数据进行产品、运营、推广策略的决策。由于官网提供的代码样例是Objective-C的，下面我将演示如何使用Swift来调用友盟的SDK。
-什么是友盟
-友盟致力于为移动开发者提供专业的数据统计分析、开发和运营组件及推广服务。服务包含移动应用统计分析以及细分">
-<meta name="twitter:image" content="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0@2x.png">
+背景知识对于Android开发者来说，我想大家应该都知道，在 Android 7.0 Nougat 中引入了全新的 APK Signature Scheme v2，所以我大致总结一下，我们开发者需要了解的新的打包的方式和签名步骤。
+说明Android 7.0 引入一项新的应用签名方案 APK Signature Scheme v2，">
+<meta name="twitter:image" content="https://o6li24d5a.qnssl.com/snapshot_1489129198356.png">
 
 
 
@@ -135,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/28/postName/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/01/Signature/"/>
 
 
 
 
 
-  <title> swift集成友盟统计 | 陳文超同学 </title>
+  <title> APK signature scheme v1、v2 | 陳文超同学 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -264,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/28/postName/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/01/Signature/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="陳文超同学">
@@ -288,7 +284,7 @@
             
             
               
-                swift集成友盟统计
+                APK signature scheme v1、v2
               
             
           </h1>
@@ -303,8 +299,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-28T14:03:49+08:00">
-                2016-12-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T15:25:57+08:00">
+                2017-03-01
               </time>
             
 
@@ -322,8 +318,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/28/postName/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/postName/" itemprop="commentCount"></span>
+                <a href="/2017/03/01/Signature/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/01/Signature/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -350,36 +346,28 @@
 
       
         <blockquote>
-<p>前言</p>
+<p>版权声明：本文为博主原创文章，未经博主允许不得转载。<br><a href="http://cunese2020.github.io/" target="_blank" rel="external">我的博客</a></p>
 </blockquote>
-<p>友盟统计分析平台是国内最大的移动应用统计分析平台。用于帮助移动应用开发商统计和分析流量来源、内容使用、用户属性和行为数据，以便开发商利用数据进行产品、运营、推广策略的决策。<strong>由于官网提供的代码样例是Objective-C的，下面我将演示如何使用Swift来调用友盟的SDK。</strong></p>
-<h3 id="什么是友盟"><a href="#什么是友盟" class="headerlink" title="什么是友盟"></a>什么是友盟</h3><ul>
-<li>友盟致力于为移动开发者提供专业的数据统计分析、开发和运营组件及推广服务。服务包含移动应用统计分析以及细分行业的移动游戏统计分析、社会化分享组件、消息推送、自动更新、用户反馈、错误分析等产品。</li>
-<li>友盟提供iOS、Android和Windows Phone等多平台服务。</li>
+<h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><p>对于Android开发者来说，我想大家应该都知道，在 <code>Android 7.0 Nougat</code> 中引入了全新的 <code>APK Signature Scheme v2</code>，所以我大致总结一下，我们开发者需要了解的新的打包的方式和签名步骤。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p><code>Android 7.0</code> 引入一项新的应用签名方案 <code>APK Signature Scheme v2</code>，它能提供更快的应用安装时间和更多针对未授权 APK 文件更改的保护。在默认情况下，<code>Android Studio 2.2</code> 和 <code>Android Plugin for Gradle 2.2</code> 会使用 <code>APK Signature Scheme v2</code> 和传统签名方案来签署您的应用。</p>
+<p>虽然我们建议您对您的应用采用 <code>APK Signature Scheme v2</code>，但这项新方案并非强制性的。如果您的应用在使用 <code>APK Signature Scheme v2</code> 时不能正确开发，您可以停用这项新方案。禁用过程会导致 <code>Android Studio 2.2</code> 和 <code>Android Plugin for Gradle 2.2</code> 仅使用传统签名方案来签署您的应用。要仅用传统方案签署，打开模块级 <code>build.gradle</code> 文件，然后将行 <code>v2SigningEnabled false</code> 添加到您的版本签名配置中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">   ...</div><div class="line">   defaultConfig &#123; ... &#125;</div><div class="line">   signingConfigs &#123;</div><div class="line">     release &#123;</div><div class="line">       <span class="function">storeFile <span class="title">file</span><span class="params">(<span class="string">"myreleasekey.keystore"</span>)</span></span></div><div class="line">       storePassword "password"</div><div class="line">       keyAlias "MyReleaseKey"</div><div class="line">       keyPassword "password"</div><div class="line">       v2SigningEnabled <span class="keyword">false</span></div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果您使用 <code>APK Signature Scheme v2</code> 签署您的应用，并对应用进行了进一步更改，则应用的签名将无效。出于这个原因，请在使用 <code>APK Signature Scheme v2</code> 签署您的应用之前、而非之后使用 <code>zipalign</code> 等工具。</p>
+</blockquote>
+<p>详细可参考<a href="https://developer.android.com/about/versions/nougat/android-7.0.html#apk_signature_v2" target="_blank" rel="external">开发者文档</a> ps:需要科学上网</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>为什么谷歌要做这个事情呢？第一点毋庸置疑，肯定是处于安全性的考虑，之前的校验方式开发者可以在打包之后对<code>apk</code>做很多处理，第二为了性能考虑，安装校验的时候不需要再解压缩校验，从而提升安装速度（说句玩笑话，个人感觉没什么鸟用，也不需要关系）</p>
+<h1 id="那么问题来了"><a href="#那么问题来了" class="headerlink" title="那么问题来了"></a>那么问题来了</h1><p><img src="https://o6li24d5a.qnssl.com/snapshot_1489129198356.png" alt="snapshot_1489129198356.png"><br>在<code>Android Studio 2.3</code>新增签名版本的选择，因为刚开始默认勾选的v2(Full APK Signature)，没多想一路next下去了结果在测试的7.0以下的机型都安装失败。回过头一看，可能签名改了<br><img src="https://o6li24d5a.qnssl.com/snapshot_1489129858310.png" alt="snapshot_1489129858310.png"></p>
+<h3 id="问题解析-v1和v2"><a href="#问题解析-v1和v2" class="headerlink" title="问题解析(v1和v2)"></a>问题解析(v1和v2)</h3><ul>
+<li>v1：应该是通过ZIP条目进行验证，这样可以<code>APK</code> 签署后可进行许多修改，可以移动甚至重新压缩文件。</li>
+<li>v2：验证压缩文件的所有字节，而不是单个 ZIP 条目，因此，在签名后无法再更改<code>(包括 zipalign)</code>。正因如此，现在，在编译过程中，我们将压缩、调整和签署合并成一步完成。</li>
 </ul>
-<h3 id="集成步骤"><a href="#集成步骤" class="headerlink" title="集成步骤"></a>集成步骤</h3><p>（1）获得Appkey<br>在集成友盟SDK之前，首先需要到 <a href="http://mobile.umeng.com/apps" target="_blank" rel="external">友盟官网</a> 注册并且添加新应用，获得Appkey</p>
-<ul>
-<li>特别提醒：我们建议开发者在注册账号时使用企业邮箱，避免使用个人邮箱注册，防止由于个人离职带来的问题，建议使用的账号形式 ：umeng@企业域名、apps@企业域名、dev@企业域名。<br><img src="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0@2x.png" alt=""></li>
+<p>好处显而易见，更安全而且新的签名可缩短在设备上进行验证的时间（不需要费时地解压缩然后验证），从而加快应用安装速度。</p>
+<h3 id="使用分析"><a href="#使用分析" class="headerlink" title="使用分析"></a>使用分析</h3><ul>
+<li>只勾选v1签名并不会影响什么，但是在7.0上不会使用更安全的验证方式</li>
+<li>只勾选v2签名7.0以下会直接安装完显示未安装，7.0以上则使用了v2的方式验证</li>
+<li>同时勾选v1和v2则所有机型都没问题</li>
 </ul>
-<p>(2)下载统计sdk</p>
-<ul>
-<li><a href="http://dev.umeng.com/analytics/ios-doc/sdk-download" target="_blank" rel="external">下载sdk</a>并解压缩。</li>
-</ul>
-<p>(3)把sdk添加到项目中去</p>
-<ul>
-<li>将sdk中的  <strong>UMMobClick.framework</strong> 文件拖入XCode工程目录<strong>Frameworks</strong>结构中。</li>
-</ul>
-<p><img src="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-1@2x.png" alt=""></p>
-<p><strong>同时还要记得添加桥接文件，在其中增加对友盟分析的引用。</strong><br>    <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;UMMobClick/MobClick.h&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>如果不知道怎么添加，请自行 Google</p>
-<p>(4)在 AppDelegate.swift 中增加配置，代码如下：<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function">func <span class="title">application</span><span class="params">(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)</span> -&gt; Bool </span>&#123;</div><div class="line">       <span class="comment">//友盟统计</span></div><div class="line">       let cofingUmeng = UMAnalyticsConfig();</div><div class="line">       cofingUmeng.appKey = <span class="string">"585895f7f5ade4037f002237"</span></div><div class="line">       cofingUmeng.channelId = <span class="string">"App Store"</span></div><div class="line">       MobClick.startWithConfigure(cofingUmeng);</div><div class="line">       </div><div class="line">       <span class="keyword">return</span> <span class="keyword">true</span></div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
-<p>(5)测试效果</p>
-<ul>
-<li>上面配置完以后直接启动测试下（真机模拟器均可），进入友盟后台，可以看到新增用户信息了。<br><img src="http://7xuul2.com1.z0.glb.clouddn.com/QQ20161227-0.png" alt=""></li>
-</ul>
-<p>如果在后台成功的看见有数据变化证明已经集成 ok 啦🙄，如果想扩展统计更多功能请参考<a href="http://dev.umeng.com/analytics/ios-doc/integration" target="_blank" rel="external">友盟官网文档</a></p>
-<p>有什么问题欢迎留言或者私信，作者看到后都会一一回复</p>
-<p>么么哒~</p>
 
       
     </div>
@@ -406,15 +394,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/02/20/channelName/" rel="next" title="Android多渠道打包对比">
+                <i class="fa fa-chevron-left"></i> Android多渠道打包对比
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/31/blogremark/" rel="prev" title="我为什么要写博客">
-                我为什么要写博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -440,8 +428,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/28/postName/"
-           data-title="swift集成友盟统计" data-url="http://yoursite.com/2016/12/28/postName/">
+      <div class="ds-thread" data-thread-key="2017/03/01/Signature/"
+           data-title="APK signature scheme v1、v2" data-url="http://yoursite.com/2017/03/01/Signature/">
       </div>
     
   </div>
@@ -547,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是友盟"><span class="nav-number">1.</span> <span class="nav-text">什么是友盟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成步骤"><span class="nav-number">2.</span> <span class="nav-text">集成步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景知识"><span class="nav-number">1.</span> <span class="nav-text">背景知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">2.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原因"><span class="nav-number">3.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#那么问题来了"><span class="nav-number">4.</span> <span class="nav-text">那么问题来了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题解析-v1和v2"><span class="nav-number">4.0.1.</span> <span class="nav-text">问题解析(v1和v2)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用分析"><span class="nav-number">4.0.2.</span> <span class="nav-text">使用分析</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
